@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     if (token) {
         jwt.verify(token, secrets.jwtSecret, (err, decodedToken) => {
             if(err) {
-                return res.status(401).json({ message: "There was an issue" })
+                return res.status(401).json({ message: "Please Login" })
             } else {
                 req.decodedToken = decodedToken
                 next()
