@@ -13,6 +13,6 @@ module.exports = (req, res, next) => {
             }
         })
     } else {
-        res.status(401).json({ message: "There was an issue" })
+        res.status(401).json({ message: "Please Login" })
     }
 }
