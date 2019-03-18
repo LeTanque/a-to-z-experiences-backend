@@ -16,9 +16,6 @@ exports.up = function(knex, Promise) {
       tbl.string('password', 128)
             .notNullable()
 
-      tbl.string('email', 128)
-            .notNullable()
-
       tbl.string('role', 128)
             .notNullable()
 
