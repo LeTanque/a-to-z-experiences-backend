@@ -25,10 +25,13 @@ exports.up = function(knex, Promise) {
       tbl.string('city', 128)
         .notNullable()
 
-      tbl.string('state', 128)
+      tbl.string('region', 128)
         .notNullable()
 
-      tbl.integer('postCode')
+        tbl.string('country', 128)
+        .notNullable()
+
+      tbl.string('postCode')
         .notNullable()
 
       tbl.integer('provider_id')

@@ -5,7 +5,7 @@ const Users = require('../users/UserHelpers')
 const secrets = require('../secrets/secrets')
 
 router.get('/', async (req, res) => {
-    res.status(200).json({ message: "auth router up" })
+    return res.status(200).json({ message: "auth router up" })
 })
 
 router.post('/register', async (req, res) => {

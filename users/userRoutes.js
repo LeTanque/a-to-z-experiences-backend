@@ -38,7 +38,12 @@ router.get('/:id/experiences', restricted, async (req, res) => {
     const id = req.params.id
     try {
         const experiences = await Users.findExperiences(id)
-        return res.status(200).json(experiences)
+        if (experiences.length > 0) {
+            return res.status(200).json(experiences)
+        } else {
+            return res.status(404).json({ message: 'No experience found with this user' })
+        }
+        
     } catch(error) {
         console.log(error)
         return res.status(500).json(error)
