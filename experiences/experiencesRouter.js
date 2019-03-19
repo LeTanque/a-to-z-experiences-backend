@@ -45,8 +45,8 @@ router.get('/:id/users', restricted, async(req, res) => {
 })
 
 router.post('/', restricted, async (req, res) => {
-    const { title, description, category, street, city, state, postCode, provider_id } = req.body
-    if (!title || !description || !category || !street || !city || !state || !postCode || !provider_id) {
+    const { title, description, category, street, city, region, postCode, provider_id } = req.body
+    if (!title || !description || !category || !street || !city || !region || !postCode || !provider_id) {
         return res.status(400).json({ message: "Please fill all fields" })
     }
     try {
