@@ -4,7 +4,8 @@ module.exports = {
     add,
     findAll,
     findBy,
-    findById
+    findById,
+    findExperiences
 }
 
 function findAll() {
@@ -23,3 +24,12 @@ async function add(user) {
 function findById(id) {
     return db('users').where({ id }).first()
 }
+
+function findExperiences(id) {
+    return db('consumerExperience')
+        .join('users', 'consumerExperience.consumer_id', 'users.id')
+        .select('users.name')
+        .join('experiences', 'consumerExperience.experience_id', 'experiences.id')
+        .select('experiences.title', 'experiences.description')
+        .where({consumer_id: id})
+} 
