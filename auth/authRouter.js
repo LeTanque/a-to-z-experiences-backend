@@ -10,11 +10,12 @@ router.get('/', async (req, res) => {
 
 router.post('/register', async (req, res) => {
     let user = req.body
+    
+    if (!user.username || !user.password || !user.name || !user.email) {
+        return res.status(400).json({ message: "Please provide all fields" })
+    }
     const hash = bcrypt.hashSync(user.password, 12)
     user.password = hash
-    if (!user.username || !user.password || !user.name || !user.email) {
-        return res.status(422).json({ message: "Please provide all fields" })
-    }
     try {
         const newUser = await Users.add(user)
         res.status(201).json(newUser)
@@ -44,7 +45,7 @@ router.post('/login', async (req, res) => {
             res.status(500).json(error)
         }
     } else {
-        res.status(422).json({ message: "Provide both username and password" })
+        res.status(400).json({ message: "Provide both username and password" })
     }
 })
 

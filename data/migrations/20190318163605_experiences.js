@@ -15,6 +15,7 @@ exports.up = function(knex, Promise) {
         .notNullable()
     
       tbl.integer('price')
+      //Price will be saved as x100. i.e. $100.25 is stored as 10025. Front end should /100 when accessing data
 
       tbl.integer('maxSize')
 

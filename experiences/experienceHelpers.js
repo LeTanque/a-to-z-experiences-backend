@@ -5,7 +5,8 @@ module.exports = {
     findAll,
     findBy,
     findById,
-    findConsumers
+    findConsumers,
+    remove
 }
 
 function findAll() {
@@ -16,8 +17,8 @@ function findBy(filteredparam) {
     return db('experiences').where(filteredparam)
 }
 
-async function add(user) {
-    const [id] = await db('experiences').insert(user)
+async function add(experience) {
+    const [id] = await db('experiences').insert(experience)
     return findById(id)
 }
 
@@ -33,3 +34,7 @@ function findConsumers(id) {
         .select('users.name')
         .where({experience_id: id})
 } 
+
+function remove(id) {
+    return db('experiences').where({ id }).del()
+}
