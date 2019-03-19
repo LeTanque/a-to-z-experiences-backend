@@ -2,7 +2,6 @@ const router = require('express').Router()
 const Experience = require('./experienceHelpers')
 const restricted = require('../auth/middleware')
 
-const db = require('../data/dbConfig')
 
 
 router.get('/', restricted, async (req, res) => {
