@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 router.post('/register', async (req, res) => {
     let user = req.body
     
-    if (!user.username || !user.password || !user.name || !user.email) {
+    if (!user.username || !user.password || !user.name || !user.email || !user.role) {
         return res.status(400).json({ message: "Please provide all fields" })
     }
     const hash = bcrypt.hashSync(user.password, 12)

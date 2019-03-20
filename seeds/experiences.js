@@ -17,6 +17,9 @@ exports.seed = function(knex, Promise) {
           region: 'Florida',
           country: 'USA',
           postCode: '32301',
+          date: '2019-04-29',
+          time: '14:00:00',
+          time_commitment: 2,
           provider_id: 1
         },
         {
@@ -31,6 +34,9 @@ exports.seed = function(knex, Promise) {
           region: 'New York',
           country: 'USA',
           postCode: '13901',
+          date: '2019-05-29',
+          time: '14:00:00',
+          time_commitment: 4,
           provider_id: 4
         },
         {
@@ -45,6 +51,9 @@ exports.seed = function(knex, Promise) {
           region: 'California',
           country: 'USA',
           postCode: '22434',
+          date: '2019-06-29',
+          time: '14:00:00',
+          time_commitment: 5,
           provider_id: 7
         },
       ]);
