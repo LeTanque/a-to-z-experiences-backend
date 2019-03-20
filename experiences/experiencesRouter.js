@@ -29,6 +29,8 @@ router.get('/:id', restricted, async(req, res) => {
         //Finding a specific experience
         const experience = await Experience.findById(id)
         if (experience) {
+            const provider = await db('users').where({'id': experience.provider_id})
+            experience.provider = provider
             //If that experience exists, returns it with a success status code
             return res.status(200).json(experience)
         } else {
