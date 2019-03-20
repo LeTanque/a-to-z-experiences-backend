@@ -54,7 +54,8 @@ router.post('/login', async (req, res) => {
                 //Returning a succesfull status code with a short welcome message and the token
                 return res.status(200).json({
                     message: `Hi ${loggedIn.name}`,
-                    token
+                    token,
+                    id: loggedIn.id
                 })
             } else {
                 //If no matches for username or password, returns a message saying the credentials were incorrect
@@ -79,7 +80,7 @@ function generateToken(user) {
         subject: user.id,
         username: user.username,
         name: user.name,
-        role: user.role
+        role: user.role,
     }
     const options = {
         expiresIn: '1d'
