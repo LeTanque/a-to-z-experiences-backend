@@ -41,8 +41,8 @@ exports.seed = function(knex, Promise) {
         },
         {
           title: 'Fishing',
-          description: 'Hey, take a look at the earthlings. Goodbye! What do they got in there? King Kong? I was part of something special. Do you have any idea how long it takes those cups to decompose. Is this my espresso machine? Wh-what is-h-how did you get my espresso machine?',
-          image: 'http://www.lynchburgparksandrec.com/wp-content/uploads/2016/01/camaje-cooking-7.jpg',
+          description: 'God help us, we\'re in the hands of engineers. Just my luck, no ice. Hey, you know how I\'m, like, always trying to save the planet? Here\'s my chance. Hey, take a look at the earthlings. Goodbye! You\'re a very talented young man, with your own clever thoughts and ideas. Do you need a manager?',
+          image: 'http://yesofcorsa.com/wp-content/uploads/2015/11/1052_fishing.jpg',
           category: 'learning',
           price: 2500,
           maxSize: 10,
