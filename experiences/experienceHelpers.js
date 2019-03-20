@@ -10,7 +10,7 @@ module.exports = {
 }
 
 function findAll() {
-    return db('experiences').select('id', 'title', 'description', 'image', 'category', 'price', 'maxSize', 'street', 'city', 'postCode', 'provider_id')
+    return db('experiences').select('id', 'title', 'description', 'image', 'category', 'price', 'maxSize', 'street', 'city', 'postCode', 'time_commitment', 'date', 'time', 'provider_id')
 }
 
 function findBy(filteredparam) {

@@ -13,6 +13,12 @@ exports.up = function(knex, Promise) {
 
       tbl.string('category', 128)
         .notNullable()
+
+      tbl.integer('time_commitment')
+
+      tbl.date('date')
+
+      tbl.time('time')
     
       tbl.integer('price')
       //Price will be saved as x100. i.e. $100.25 is stored as 10025. Front end should /100 when accessing data

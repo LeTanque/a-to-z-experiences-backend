@@ -2,6 +2,7 @@ const router = require('express').Router()
 const Users = require('./UserHelpers')
 const restricted = require('../auth/middleware')
 const db = require('../data/dbConfig')
+const bcrypt = require('bcryptjs')
 
 
 router.get('/', restricted, async (req, res) => {
@@ -11,6 +12,21 @@ router.get('/', restricted, async (req, res) => {
     } catch(error) {
         console.log(error)
         res.status(500).json(error)
+    }
+})
+
+router.get('/:id', restricted, async (req, res) => {
+    const id = req.params.id
+    try {
+        const user = await Users.findById(id)
+        if (user) {
+            return res.status(200).json(user)
+        } else {
+            return res.status(404).json({ message: 'No user with this id exists' })
+        }
+    } catch(error) {
+        console.log(error)
+        return res.status(500).json(error)
     }
 })
 
@@ -47,6 +63,40 @@ router.get('/:id/experiences', restricted, async (req, res) => {
     } catch(error) {
         console.log(error)
         return res.status(500).json(error)
+    }
+})
+
+router.put('/:id', restricted, async (req, res) => {
+    const id = req.params.id
+    let user = req.body
+    if (user.password) {
+        const hash = bcrypt.hashSync(user.password, 12)
+        user.password = hash
+        try {
+            const updatedUser = await db('users').update(user).where({ id })
+            if (updatedUser > 0) {
+                const response = await db('users').where({ id })
+                return res.status(200).json(response)
+            } else {
+                return res.status(404).json({ message: 'No such user with this ID exists' })
+            }
+        } catch(error) {
+            console.log(error)
+            res.status(500).json(error)
+        }
+    }
+
+    try {
+        const updatedUser = await db('users').update(user).where({ id })
+        if (updatedUser > 0) {
+            const response = await db('users').where({ id })
+            return res.status(200).json(response)
+        } else {
+            return res.status(404).json({ message: 'No such user with this ID exists' })
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(500).json(error)
     }
 })
 
