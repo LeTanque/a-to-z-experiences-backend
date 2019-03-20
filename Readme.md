@@ -23,6 +23,10 @@ GET to /api/users
 -expects token for authorization
 -outputs an array of users
 
+GET to /api/users/:id
+-expects token for authorization
+-outputs user with the specified ID
+
 GET to /api/users/:id/provider
 
 -expects token for authorization
