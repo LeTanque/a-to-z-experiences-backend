@@ -13,7 +13,7 @@ module.exports = {
 
 //Used for GET request to get all experiences, and the selected information
 function findAll() {
-    return db('experiences').select('id', 'title', 'description', 'image', 'category', 'price', 'maxSize', 'street', 'city', 'postCode', 'time_commitment', 'date', 'time', 'provider_id')
+    return db('experiences').select('id', 'title', 'description', 'image', 'category', 'price', 'maxSize', 'region', 'street', 'city', 'postCode', 'time_commitment', 'date', 'time', 'provider_id')
 }
 
 //A find function to get an experiences by some parameter
