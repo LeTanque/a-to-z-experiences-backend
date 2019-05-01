@@ -1,9 +1,9 @@
-## BackEnd Repository for the AtoZ Experience build week team
+# BackEnd Repository for the AtoZ Experience build week team
 
-# Endpoint explanation:
+## Endpoint explanation:
 
 
-# Authorization Routes
+## Authorization Routes
 ------------------------------
 
 POST to /api/auth/register
@@ -15,7 +15,7 @@ POST to /api/auth/login
 - expects username and password in the req.body,
 - outputs a token and welcome message
 
-# User Routes
+## User Routes
 -------------------------------
 
 GET to /api/users
