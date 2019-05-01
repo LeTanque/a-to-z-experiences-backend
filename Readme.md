@@ -10,7 +10,7 @@ POST to `/api/auth/register`
 
 - expects name, username, password, email and role in the req.body
 
-POST to /api/auth/login
+POST to `/api/auth/login`
 
 - expects username and password in the req.body,
 - outputs a token and welcome message
