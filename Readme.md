@@ -2,7 +2,6 @@
 
 
 ## Authorization Routes
-------------------------------
 
 POST to `/api/auth/register`
 
@@ -14,7 +13,6 @@ POST to /api/auth/login
 - outputs a token and welcome message
 
 ## User Routes
--------------------------------
 
 GET to `/api/users`
 
@@ -41,7 +39,6 @@ PUT to `/api/users/:id`
 
 
 ## Experience Routes
---------------------------------
 
 GET to `/api/experiences`
 
